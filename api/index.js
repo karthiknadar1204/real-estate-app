@@ -6,12 +6,17 @@ import authRouter from "./routes/auth-route.js";
 import cookieParser from "cookie-parser";
 import listingRouter from "./routes/listing.route.js";
 import path from 'path';
+import cors from 'cors';
 
 dotenv.config(); 
 
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}));
 
 (async () => {
     try {
@@ -51,4 +56,3 @@ app.use((err, req, res, next) => {
       message,
     });
   });
-  

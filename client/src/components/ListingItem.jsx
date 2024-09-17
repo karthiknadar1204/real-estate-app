@@ -3,8 +3,7 @@ import { MdLocationOn } from 'react-icons/md';
 
 export default function ListingItem({ listing }) {
   if (!listing) {
-    // Handle the case where listing is not provided.
-    return null; // or you can render a placeholder or message
+    return null;
   }
 
   const {
@@ -21,10 +20,9 @@ export default function ListingItem({ listing }) {
     bathrooms,
   } = listing;
 
-  // Define default values in case certain properties are missing.
-  const imageUrl ='https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Sales_Blog/real-estate-business-compressor.jpg?width=595&height=400&name=real-estate-business-compressor.jpg';
-    // imageUrls && imageUrls[1]
-    //   ? imageUrls[1]
+  const imageUrl = imageUrls && imageUrls.length > 0
+    ? imageUrls[0]
+    : 'https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Sales_Blog/real-estate-business-compressor.jpg?width=595&height=400&name=real-estate-business-compressor.jpg';
 
   return (
     <div className='bg-white shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-[330px]'>
